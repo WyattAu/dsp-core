@@ -1,0 +1,38 @@
+[package]
+name = "dsp-core"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Foundational audio DSP primitives — biquad filters, FFT, convolution, windowing, dynamics, oscillators — allocation-free process paths"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/WyattAu/dsp-core"
+keywords = ["audio", "dsp", "fft", "biquad", "no-std"]
+categories = ["multimedia::audio", "no-std", "science"]
+exclude = [".github/"]
+
+[dependencies]
+# Sole runtime dependency: pure-Rust `no_std` transcendental math (sin/cos/
+# pow/exp/ln), so the crate itself stays `#![no_std]` + `alloc` and the L0
+# no-deps discipline holds. FFT, filters, convolution, and dynamics are all
+# implemented in-crate — nothing here defers to rustfft or similar.
+libm = "0.2"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "deny"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+indexing_slicing = "deny"
+undocumented_unsafe_blocks = "deny"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+strip = true
+panic = "abort"
+
+[package.metadata.layers]
+tier = "L0"

@@ -1,0 +1,15 @@
+
+# cargo-vet config file
+
+[cargo-vet]
+version = "0.10"
+
+[imports.mozilla]
+url = "https://raw.githubusercontent.com/mozilla/supply-chain/main/audits.toml"
+
+[policy.dsp-core]
+audit-as-crates-io = true
+
+[[exemptions.libm]]
+version = "0.2.16"
+criteria = "safe-to-deploy"
