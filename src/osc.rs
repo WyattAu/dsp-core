@@ -578,7 +578,6 @@ mod tests {
         assert_eq!(osc.sample_rate(), 96_000.0, "failed set keeps old rate");
     }
 
-
     #[test]
     fn accessors_on_all_types() {
         let fs = FS;
