@@ -19,6 +19,7 @@ numerics rather than deferring to `rustfft`.
 | [`window`] | rectangular, Hann, Hamming, Blackman, Blackman–Harris, Kaiser (β) — periodic and symmetric |
 | [`dynamics`] | lookahead peak limiter, soft-knee compressor, hysteresis noise gate |
 | [`osc`] | sine / saw / square / triangle phase accumulators with an instantaneous-frequency (FM) input; saw + square band-limited via PolyBLEP |
+| [`loudness`] | ITU-R BS.1770-4 / EBU R128: K-weighting (coefficients generated per sample rate), gated integrated LUFS, loudness range, 4× oversampled true peak, normalisation gain with a clip check |
 | [`math`] | dB↔linear conversion, flush-to-zero denormal guard |
 
 ## Design principles
@@ -87,5 +88,6 @@ your option.
 [`window`]: https://docs.rs/dsp-core/latest/dsp_core/window/
 [`dynamics`]: https://docs.rs/dsp-core/latest/dsp_core/dynamics/
 [`osc`]: https://docs.rs/dsp-core/latest/dsp_core/osc/
+[`loudness`]: https://docs.rs/dsp-core/latest/dsp_core/loudness/
 [`math`]: https://docs.rs/dsp-core/latest/dsp_core/math/
 [`DspError`]: https://docs.rs/dsp-core/latest/dsp_core/error/enum.DspError.html

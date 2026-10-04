@@ -3,6 +3,29 @@
 All notable changes to this project are documented here. Format: [Keep a
 Changelog](https://keepachangelog.com/) — versions follow [semver](https://semver.org).
 
+## [Unreleased]
+
+### Added
+
+- **`loudness`** — ITU-R BS.1770-4 / EBU R128 measurement: `KWeighting`
+  (the two-stage spec filter pair, coefficients *generated* per sample rate
+  rather than hard-coded for 48 kHz), `LoudnessMeter` (400 ms blocks at
+  75 % overlap, −70 LUFS absolute gate, −10 LU relative gate),
+  `Measurement::gain_to` / `::gain_would_clip`, `TruePeak` (4× oversampled,
+  four-phase cubic Lagrange), and `LoudnessRange` via the `loudness_range_lu`
+  field (EBU Tech 3342: 10th-to-95th percentile inside a −20 LU gate).
+  `ChannelLayout` carries the spec's channel weights (1.0 front, √2
+  surround).
+
+  Verified against the spec's own reference signals: a **stereo** 1 kHz sine
+  at −23 dBFS integrates to −23.0 LUFS (EBU Tech 3341 case 1), and the
+  reading is rate-independent across 44.1/48/96 kHz, which is what proves the
+  per-rate coefficient generation is correct.
+
+  This unblocks the estate's audiobook path: loudness is the number a
+  deliverable is normalised against and the one streaming platforms gate on,
+  and no other estate crate measured it.
+
 ## [0.1.0] - 2026-10-03
 
 ### Added

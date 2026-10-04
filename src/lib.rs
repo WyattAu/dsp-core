@@ -66,6 +66,7 @@
 //! | [`window`] | Hann/Hamming/Blackman/Blackman–Harris/Kaiser/rectangular |
 //! | [`dynamics`] | lookahead limiter, soft-knee compressor, hysteresis gate |
 //! | [`osc`] | sine/saw/square/triangle phase accumulators |
+//! | [`loudness`] | ITU-R BS.1770-4 / EBU R128 gated loudness, LRA, true peak |
 //! | [`math`] | dB conversion and denormal flushing |
 
 #![no_std]
@@ -79,6 +80,7 @@ pub mod convolve;
 pub mod dynamics;
 pub mod error;
 pub mod fft;
+pub mod loudness;
 pub mod math;
 pub mod osc;
 pub mod window;
