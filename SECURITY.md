@@ -1,4 +1,4 @@
-# Security Policy — dsp-core
+# Security Policy: dsp-core
 
 ## Supported versions
 
@@ -21,7 +21,7 @@ patch ships.
 `dsp-core` is a numeric DSP library. Security considerations for
 integrators:
 
-- **No network, filesystem, or process state** — the crate is pure
+- **No network, filesystem, or process state**: the crate is pure
   computation over caller-owned buffers and has no attack surface beyond
   its numeric inputs.
 - **`process` paths are panic-free by construction** (crate denies
@@ -32,7 +32,7 @@ integrators:
 - **NaN propagation**: NaN inputs propagate through the math as IEEE NaN.
   Callers gating untrusted input should validate before feeding process
   paths; the crate never panics on NaN but downstream stages will see it.
-- `#![forbid(unsafe_code)]` — no unsafe blocks exist in this crate.
+- `#![forbid(unsafe_code)]`: no unsafe blocks exist in this crate.
 
 [GitHub security advisories]:
     https://github.com/WyattAu/dsp-core/security/advisories/new
