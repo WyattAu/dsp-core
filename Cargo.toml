@@ -1,9 +1,9 @@
 [package]
 name = "dsp-core"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.85"
-description = "Foundational audio DSP primitives — biquad filters, FFT, convolution, windowing, dynamics, oscillators — allocation-free process paths"
+description = "Foundational audio DSP primitives: biquad filters, FFT, convolution, windowing, dynamics, oscillators: allocation-free process paths"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/WyattAu/dsp-core"
 keywords = ["audio", "dsp", "fft", "biquad", "no-std"]
