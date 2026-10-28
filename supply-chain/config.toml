@@ -10,6 +10,10 @@ url = "https://raw.githubusercontent.com/mozilla/supply-chain/main/audits.toml"
 [policy.dsp-core]
 audit-as-crates-io = true
 
+[[exemptions.dsp-core]]
+version = "0.1.1"
+criteria = "safe-to-deploy"
+
 [[exemptions.libm]]
 version = "0.2.16"
 criteria = "safe-to-deploy"
